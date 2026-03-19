@@ -1,0 +1,8 @@
+// react-query 로 reducer 등록하는 방법
+
+1. slice 리듀서를 루트 리듀서로 결합
+rootReducer: {
+    slice1,
+    slice2,
+    slice3
+}
