@@ -6,6 +6,18 @@ pnpm add redux-logger
 - 로그에 색상 주입, 리덕스 동작을 로그로 확인하는 미들웨어
 - redux devtool 이 있으면 안써도됨
 
+
+
+
+
+
+
+
+
+
+
+
+
 ##### 1. redux 구성
 1. store
   - /src/lib/redux/store.ts
