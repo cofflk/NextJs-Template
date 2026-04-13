@@ -4,12 +4,55 @@ pnpm install @reduxjs/toolkit react-redux
 // redux logger 설치
 pnpm add redux-logger
 - 로그에 색상 주입, 리덕스 동작을 로그로 확인하는 미들웨어
-- redux devtool 이 있으면 안써도됨
+- redux devtool (개발자도구) 사용하면 안써도됨
+
+
+// redux slice, api
+1. slice : UI, 상태관리 = 다크 테마, 장바구니 등등
+2. api : 서버 데이터 관리 = 로그인 사용자, 메뉴 조회 등
 
 
 
+// 복수의 slice 관리
+1) redux/features/menu/slcie 1, 2, 3
+=> redux/features/menu/index.ts 에서 combine
 
+2) redux/features/user/slcie 4, 5, 6
+=> redux/features/user/index.ts 에서 combine
 
+3) rootReducer.ts
+import { test1Reducer } from './features/menu';
+import { test2Reducer } from './features/user';
+
+export const rootReducer = combineReducers({
+  menu: test1Reducer,
+  user: test2Reducer,
+});
+
+4) store.ts 에서
+export const store = configureStore({
+  reducer: rootReducer,
+});
+
+5) 정리
+{
+  test1: {
+    sliceA: {...},
+    sliceB: {...}
+  },
+  test2: {
+    sliceC: {...},
+    sliceD: {...}
+  }
+}
+
+=> “같은 화면/기능이면 하나의 slice로 묶기” : 
+- userInfo, userRole → 같은 slice OK
+- login, menu → 분리 OK
+
+✔ slice = 상태 단위
+✔ feature = 도메인 단위
+✔ store = feature 조합
 
 
 

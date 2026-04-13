@@ -1,12 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import userReducer from './features/user/userSlice';
+// slice
+// import userReducer from './features/user/userSlice';
+import rootReducer from './features/rootReducer';
+
+// api
+import { pokemonApi } from './services/poke/pokeApi';
 
 export const makeStore = () => {
   return configureStore({
-    reducer: {
-      user: userReducer,
-    },
+    reducer: rootReducer,
+
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(pokemonApi.middleware),
   })
 }
 
