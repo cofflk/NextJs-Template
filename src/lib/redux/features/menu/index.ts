@@ -1,10 +1,13 @@
-// root reducer
+// // root reducer
 
-import { combineReducers } from '@reduxjs/toolkit'
+// import { combineReducers } from '@reduxjs/toolkit'
+// import menuReducer from './menuSlice'
+// const rootMenuReducer  = combineReducers({
+//   menu: menuReducer,
+// })
+// ================================
 import menuReducer from './menuSlice'
-
-const rootMenuReducer  = combineReducers({
+export const rootMenuReducer = {
   menu: menuReducer,
-})
-
+}
 export default rootMenuReducer 

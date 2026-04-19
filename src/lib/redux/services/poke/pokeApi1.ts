@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // import type { Pokemon } from './types'
 
 // Define a service using a base URL and expected endpoints
-export const pokemonApi = createApi({
-  reducerPath: 'pokemonApi', // redux store 에 등록하기 위한 이름(저장되는 위치) = store key
+export const pokemonApi1 = createApi({
+  reducerPath: 'pokemonApi1', // redux store 에 등록하기 위한 이름(저장되는 위치) = store key
   baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }), // API 기본 URL
 
   // api 목록 정의
@@ -13,7 +13,7 @@ export const pokemonApi = createApi({
   // builder.mutation<response type, request type>({ mutation: (request) => request })
   // => 생성, 수정, 삭제 API = (POST, PUT, DELETE)
   endpoints: (builder) => ({
-    getPokemonByName: builder.query<any, string>({
+    getPokemonByName1: builder.query<any, string>({
       query: (name) => `pokemon/${name}`,
     }),
   }),
@@ -21,7 +21,7 @@ export const pokemonApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetPokemonByNameQuery } = pokemonApi;
+export const { useGetPokemonByName1Query } = pokemonApi1;
 
 /* endpoints example
  getPosts: build.query<Post[], void>({

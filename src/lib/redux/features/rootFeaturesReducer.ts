@@ -2,8 +2,8 @@ import { combineReducers } from '@reduxjs/toolkit';
 import rootUserReducer from './user';
 import rootMenuReducer from './menu';
 
-export const rootReducer = combineReducers({
-  user: rootUserReducer,
-  menu: rootMenuReducer,
+export const rootFeaturesReducer = combineReducers({
+  ...rootUserReducer,
+  ...rootMenuReducer,
 });
-export default rootReducer;
+export default rootFeaturesReducer;

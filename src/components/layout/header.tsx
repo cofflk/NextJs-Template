@@ -21,7 +21,9 @@ function initialsFromName(name: string): string {
 
 export default function Header() {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoggedin, userName } = useSelector((state: RootState) => state.user);
+  const { isLoggedin, userName } = useSelector(
+    (state: RootState) => state.rootFeaturesReducer.user,
+  );
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 

@@ -7,6 +7,8 @@ import Header from "@/src/components/layout/header";
 import Navigation from "@/src/components/layout/navigation";
 import StoreProvider from "@/src/components/providers/StoreProvider";
 
+import MatomoProvider from "./matomo";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,11 +34,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <MatomoProvider>
         <StoreProvider>
           <Header />
-          <Navigation />
-          {children}
-        </StoreProvider>
+            <Navigation />
+            {children}
+          </StoreProvider>
+        </MatomoProvider>
       </body>
     </html>
   );
